@@ -1,13 +1,21 @@
 clear;
 load data\data.mat;
 
-% TODO: extend calulation to more channel(Group(s))
 result=[];
-groups.first.channels.labels='F3';
-groups.second.channels.labels='P3';
-groups.first.channels.indexs=strcmpi(groups.first.channels.labels, [EEG.channels.labels]);
-groups.second.channels.indexs=strcmpi(groups.second.channels.labels, [EEG.channels.labels]);
+groups.first.channels.labels={'F3', 'Fz', 'Fp1'};
+groups.second.channels.labels={'P3', 'T5'};
+groups.first.channels.indexs=zeros(1, length(groups.first.channels.labels));
+groups.second.channels.indexs=zeros(1, length(groups.second.channels.labels));
 
+% Calculate the index of each channel and also store it into an array
+for list_index=1:length(groups.first.channels.labels)
+    groups.first.channels.indexs(list_index)=find(strcmpi(groups.first.channels.labels(list_index), [EEG.channels.labels])==1);
+end
+for list_index=1:length(groups.second.channels.labels)
+    groups.second.channels.indexs(list_index)=find(strcmpi(groups.second.channels.labels(list_index), [EEG.channels.labels])==1);
+end
+
+% Calculate connectivity for the trials
 for trial_index=1:EEG.active.trialsCount
     % Skip calculation for trials that should be excluded
     if ismember(trial_index, EEG.active.ec.excluded_trials)
@@ -29,9 +37,10 @@ for trial_index=1:EEG.active.trialsCount
         morlet.fft.data= fft(morlet.data, convolution.length);
         % Normalize the wavelet
         morlet.fft.data = morlet.fft.data ./ max(morlet.fft.data);
-        
-        groups.first.data=squeeze(EEG.active.ec.data(1, trial_index, groups.first.channels.indexs, :))';
-        groups.second.data=squeeze(EEG.active.ec.data(1, trial_index, groups.second.channels.indexs, :))';
+
+        % Compute mean of channels of the groups and stash them
+        groups.first.data =squeeze(mean(EEG.active.ec.data(1, trial_index, groups.first.channels.indexs , :), 3))';
+        groups.second.data=squeeze(mean(EEG.active.ec.data(1, trial_index, groups.second.channels.indexs, :), 3))';
         
         convolution.phase.data=zeros(2, EEG.pnts);
         
