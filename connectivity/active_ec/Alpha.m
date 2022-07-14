@@ -2,11 +2,11 @@ clear;
 load data\data.mat;
 
 % TODO: extend calulation to more channel(Group(s))
-first_group_channels='F3';
-second_group_channels='P3';
 result=[];
-first_group_channel_indexs=strcmpi(first_group_channels, [EEG.channels.labels]);
-second_group_channel_indexs=strcmpi(second_group_channels, [EEG.channels.labels]);
+groups.first.channels.labels='F3';
+groups.second.channels.labels='P3';
+groups.first.channels.indexs=strcmpi(groups.first.channels.labels, [EEG.channels.labels]);
+groups.second.channels.indexs=strcmpi(groups.second.channels.labels, [EEG.channels.labels]);
 
 for trial_index=1:EEG.active.trialsCount
     % Skip calculation for trials that should be excluded
@@ -14,45 +14,43 @@ for trial_index=1:EEG.active.trialsCount
         continue;
     end
     res=[];
-    % Calulate welch method with alpha bad frequencties
+    % Compute Welch method with alpha band frequencties
     for cent_frequency=8:0.5:12
-        % Create Morelet wavelet
+        % Define Morelet wavelet based on the params
         % TODO : fix morelet wavelet's time duration
-        time      = -1.5:1/EEG.srate:1.5;
-        s         = 8/(2*pi*cent_frequency);
-        wavelet   = exp(2*1i*pi*cent_frequency.*time) .* exp(-time.^2./(2*s^2));
-        nWave = length(time);
-        half_wavN = (nWave-1)/2;
-        nData = EEG.pnts;
-        nConv = nWave + nData - 1;
+        morlet.time=-1.5:1/EEG.srate:1.5;
+        morlet.s         = 8/(2*pi*cent_frequency);
+        morlet.sine_wave=exp(2*1i*pi*cent_frequency.*morlet.time);
+        morlet.gaussian_wave=exp(-morlet.time.^2./(2*morlet.s^2));
+        morlet.data = morlet.sine_wave.* morlet.gaussian_wave;
+        morlet.length=length(morlet.time);
+        morlet.half_length = (morlet.length-1)/2;
+        convolution.length = morlet.length + EEG.pnts - 1;
+        morlet.fft.data= fft(morlet.data, convolution.length);
         % Normalize the wavelet
-        waveletX = fft(wavelet,nConv);
-        waveletX = waveletX ./ max(waveletX);
+        morlet.fft.data = morlet.fft.data ./ max(morlet.fft.data);
         
-        first_group_data=squeeze(EEG.active.ec.data(1, trial_index, first_group_channel_indexs, :))';
-        second_group_data=squeeze(EEG.active.ec.data(1, trial_index, second_group_channel_indexs, :))';
+        groups.first.data=squeeze(EEG.active.ec.data(1, trial_index, groups.first.channels.indexs, :))';
+        groups.second.data=squeeze(EEG.active.ec.data(1, trial_index, groups.second.channels.indexs, :))';
         
-        phase_data=zeros(2, EEG.pnts);
-        real_data=zeros(2, EEG.pnts);
+        convolution.phase.data=zeros(2, EEG.pnts);
         
-        dataX = fft(first_group_data, nConv);
-        as = ifft(waveletX.*dataX, nConv);
-        as = as(half_wavN+1:end-half_wavN);
+        dataX = fft(groups.first.data, convolution.length);
+        as = ifft(morlet.fft.data.*dataX, convolution.length);
+        as = as(morlet.half_length+1:end-morlet.half_length);
         
-        phase_data(1,:) = angle(as);
-        real_data(1,:)  = real(as);
+        convolution.phase.data(1,:) = angle(as);
         
-        dataX = fft(second_group_data, nConv);
-        as = ifft(waveletX.*dataX, nConv);
-        as = as(half_wavN+1:end-half_wavN);
+        dataX = fft(groups.second.data, convolution.length);
+        as = ifft(morlet.fft.data.*dataX, convolution.length);
+        as = as(morlet.half_length+1:end-morlet.half_length);
         
-        phase_data(2,:) = angle(as);
-        real_data(2,:)  = real(as);
+        convolution.phase.data(2,:) = angle(as);
         
-        % calculate connectivity
-        res(end+1)=abs(mean(exp(1i*diff(phase_data))));
+        % Calculate connectivity
+        res(end+1)=abs(mean(exp(1i*diff(convolution.phase.data))));
     end
-    % stash Alpha band connectivity by getting mean of the elements of res array into a array that is named result
+    % Stash Alpha band connectivity by getting mean of the elements of res array into a array that is named result
     result(end+1)=mean(res);
 end
 % Write response(Alpha band connectivities) into the file
