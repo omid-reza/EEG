@@ -50,7 +50,7 @@ for trial_index=1:EEG.active.trialsCount
         % Calculate connectivity
         res(end+1)=abs(mean(exp(1i*diff(convolution.phase.data))));
     end
-    % Stash Alpha band connectivity by getting mean of the elements of res array into a array that is named result
+    % Stash Alpha band connectivity by getting mean of the elements of res array into an array that is named result
     result(end+1)=mean(res);
 end
 % Write response(Alpha band connectivities) into the file
