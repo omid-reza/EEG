@@ -4,7 +4,7 @@ load data\data.mat;
 result=[];
 groups.first.channels.labels={'F3', 'Fz', 'Fp1'};
 groups.second.channels.labels={'P3', 'T5'};
-groups.first.channels.indexs=zeros(1, length(groups.first.channels.labels));
+groups.first.channels.indexs= zeros(1, length(groups.first.channels.labels));
 groups.second.channels.indexs=zeros(1, length(groups.second.channels.labels));
 
 % Calculate the index of each channel and also store it into an array
@@ -63,6 +63,8 @@ for trial_index=1:EEG.active.trialsCount
     result(end+1)=mean(res);
 end
 % Write response(Alpha band connectivities) into the file
-fileID=fopen("result\connectivity\active_ec\Alpha.txt", "w");
+fileID=fopen("result\connectivity\active_ec\pre\Alpha.txt", "w");
 fprintf(fileID, '%5d \n', result);
 fclose(fileID);
+
+% TODO: do the same process for trials that are stored in 'post' folder

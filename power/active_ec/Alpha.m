@@ -24,3 +24,5 @@ end
 fileID=fopen("result\power\active_ec\Alpha.txt", "w");
 fprintf(fileID, '%5d \n', result);
 fclose(fileID);
+
+% TODO: do the same process for trials that are stored in 'post' folder
