@@ -3,7 +3,7 @@ load data\data.mat;
 
 result=[];
 groups.first.channels.labels={'F3', 'Fz', 'Fp1'};
-groups.second.channels.labels={'P3', 'T5'};
+groups.second.channels.labels={'P3', 'T5', 'T3'};
 groups.first.channels.indexs= zeros(1, length(groups.first.channels.labels));
 groups.second.channels.indexs=zeros(1, length(groups.second.channels.labels));
 
