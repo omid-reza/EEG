@@ -3,6 +3,7 @@ clear;
 plot.dot_size=100;
 plot.y.pre.data=load("result\connectivity\active_ec\pre\Alpha.txt");
 plot.y.post.data=load("result\connectivity\active_ec\post\Alpha.txt");
+
 plot.y.pre.color=[57 62 70].*4/1000;
 plot.y.post.color=[250 119 0].*4/1000;
 plot.x.pre.data=ones(1, length(plot.y.pre.data));
