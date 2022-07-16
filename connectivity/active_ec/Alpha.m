@@ -25,9 +25,8 @@ for trial_index=1:EEG.active.trialsCount
     % Compute Welch method with alpha band frequencties
     for cent_frequency=8:0.5:12
         % Define Morlet wavelet based on the params
-        % TODO : fix Morlet wavelet's time duration
-        morlet.time=-1.5:1/EEG.srate:1.5;
-        morlet.s         = 8/(2*pi*cent_frequency);
+        morlet.time=-(EEG.trialLength/2):1/EEG.srate:(EEG.trialLength/2)-(1/EEG.srate);
+        morlet.s= 8/(2*pi*cent_frequency);
         morlet.sine_wave=exp(2*1i*pi*cent_frequency.*morlet.time);
         morlet.gaussian_wave=exp(-morlet.time.^2./(2*morlet.s^2));
         morlet.data = morlet.sine_wave.* morlet.gaussian_wave;
