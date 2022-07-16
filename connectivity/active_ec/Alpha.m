@@ -2,8 +2,8 @@ clear;
 load data\data.mat;
 
 pre_post_folder_names=["pre\", "post\"];
-groups.first.channels.labels={'F3', 'Fz', 'Fp1'};
-groups.second.channels.labels={'P3', 'T5', 'T3'};
+groups.first.channels.labels=["F3", "Fz", "Fp1"];
+groups.second.channels.labels=["P3", "T5", "T3"];
 groups.first.channels.indexs= zeros(1, length(groups.first.channels.labels));
 groups.second.channels.indexs=zeros(1, length(groups.second.channels.labels));
 
