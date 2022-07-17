@@ -28,10 +28,10 @@ for pre_post_index=1:2
         for cent_frequency=8:0.5:12
             % Define Morlet wavelet based on the params
             morlet.time=-(EEG.trialLength/2):1/EEG.srate:(EEG.trialLength/2)-(1/EEG.srate);
-            morlet.s= 8/(2*pi*cent_frequency);
-            morlet.sine_wave=exp(2*1i*pi*cent_frequency.*morlet.time);
-            morlet.gaussian_wave=exp(-morlet.time.^2./(2*morlet.s^2));
-            morlet.data = morlet.sine_wave.* morlet.gaussian_wave;
+            morlet.sine_wave.data=exp(2*1i*pi*cent_frequency.*morlet.time);
+            morlet.gaussian_wave.standard_deviation=8/(2*pi*cent_frequency);
+            morlet.gaussian_wave.data=exp(-morlet.time.^2./(2*morlet.gaussian_wave.standard_deviation^2));
+            morlet.data = morlet.sine_wave.data.* morlet.gaussian_wave.data;
             morlet.length=length(morlet.time);
             morlet.half_length = (morlet.length-1)/2;
             convolution.length = morlet.length + EEG.pnts - 1;
