@@ -98,3 +98,8 @@
     </tbody>
   </table>
 </div>
+
+### Are you interested in investigating our dataset?
+You can contact me through the email that is in my profile.
+
+**Note**: Your email should be academic. What's more, you have to explain your investigation proposal.
