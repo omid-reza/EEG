@@ -1,11 +1,18 @@
 clear;
 load data\data.mat;
 
+% Define some constants
 pre_post_folder_names=["pre\", "post\"];
 groups.first.channels.labels=["F3", "Fz", "Fp1"];
 groups.second.channels.labels=["P3", "T5", "T3"];
 groups.first.channels.indexs= zeros(1, length(groups.first.channels.labels));
 groups.second.channels.indexs=zeros(1, length(groups.second.channels.labels));
+
+% Define morlet&convolution properties that are constant(do not depend on any variable)
+morlet.time=-(EEG.trialLength/2):1/EEG.srate:(EEG.trialLength/2)-(1/EEG.srate);
+morlet.length=length(morlet.time);
+morlet.half_length = (morlet.length-1)/2;
+convolution.length = morlet.length + EEG.pnts - 1;
 
 % Calculate the index of each channel and also store it into an array
 for list_index=1:length(groups.first.channels.labels)
@@ -27,14 +34,10 @@ for pre_post_index=1:2
         % Compute Welch method with alpha band frequencties
         for cent_frequency=8:0.5:12
             % Define Morlet wavelet based on the params
-            morlet.time=-(EEG.trialLength/2):1/EEG.srate:(EEG.trialLength/2)-(1/EEG.srate);
             morlet.sine_wave.data=exp(2*1i*pi*cent_frequency.*morlet.time);
             morlet.gaussian_wave.standard_deviation=8/(2*pi*cent_frequency);
             morlet.gaussian_wave.data=exp(-morlet.time.^2./(2*morlet.gaussian_wave.standard_deviation^2));
             morlet.data = morlet.sine_wave.data.* morlet.gaussian_wave.data;
-            morlet.length=length(morlet.time);
-            morlet.half_length = (morlet.length-1)/2;
-            convolution.length = morlet.length + EEG.pnts - 1;
             morlet.fft.data= fft(morlet.data, convolution.length);
             % Normalize the wavelet
             morlet.fft.data = morlet.fft.data ./ max(morlet.fft.data);
