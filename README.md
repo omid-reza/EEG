@@ -1,4 +1,5 @@
-### EEG Signal Frequencies
+### Analyze Information
+- EEG Signal Frequencies
 <div align="center">
   <table>
     <thead>
@@ -29,7 +30,6 @@
   </table>
 </div>
 
-### Analyze Information
 - Groups
 <div align="center">
   <table>
@@ -64,8 +64,8 @@
   <table>
     <thead>
       <tr>
-        <th>Active</th>
-        <th>Sham</th>
+        <th>Active Group</th>
+        <th>Sham Group</th>
       </tr>
     </thead>
     <tbody>
@@ -103,3 +103,7 @@
 You can contact me through the email that is in my profile.
 
 **Note**: Your email should be academic. What's more, you have to explain your investigation proposal.
+
+## License
+
+The project is under the [MIT license](LICENSE.md).
