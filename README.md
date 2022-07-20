@@ -106,4 +106,4 @@ You can contact me through the email that is in my profile.
 
 ## License
 
-The project is under the [MIT license](LICENSE.md).
+The project is under the [MIT license](license.md).
