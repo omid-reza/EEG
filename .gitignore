@@ -1,4 +1,4 @@
 dataset/*/*/*/*.txt
 dataset/data.mat
 result/raw/*/*/*/*.txt
-result/visual/*/*/*.png
+result/visual/*/*/*.fig

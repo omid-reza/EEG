@@ -21,3 +21,5 @@ ylabel("Beta Connectivity", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 set(gcf, "NumberTitle", false, "Name", "Active - EO");
 set(gca, 'GridColor', [26 77 46].*4/1000);
 set(gca, 'YColor', [26 77 46].*4/1000);
+
+savefig(gcf, "result\visual\connectivity\active_eo\Beta");

@@ -39,3 +39,5 @@ set(gcf, "NumberTitle", false, "Name", "Active - EO");
 set(gca, 'GridColor', [26 77 46].*4/1000);
 set(gca, 'YColor', [26 77 46].*4/1000);
 title('The Second Group(P3, T5, T3)');
+
+savefig(gcf, "result\visual\power\active_eo\Delta");
