@@ -1,10 +1,10 @@
 clear;
 % Config plt
 plt.dot_size=100;
-plt.y.pre.group1.data=load("result\power\active_ec\pre\Group1-Alpha.txt");
-plt.y.pre.group2.data=load("result\power\active_ec\pre\Group2-Alpha.txt");
-plt.y.post.group1.data=load("result\power\active_ec\post\Group1-Alpha.txt");
-plt.y.post.group2.data=load("result\power\active_ec\post\Group2-Alpha.txt");
+plt.y.pre.group1.data=load("result\raw\power\active_ec\pre\Group1-Alpha.txt");
+plt.y.pre.group2.data=load("result\raw\power\active_ec\pre\Group2-Alpha.txt");
+plt.y.post.group1.data=load("result\raw\power\active_ec\post\Group1-Alpha.txt");
+plt.y.post.group2.data=load("result\raw\power\active_ec\post\Group2-Alpha.txt");
 
 plt.y.pre.color=[57 62 70].*4/1000;
 plt.y.post.color=[250 119 0].*4/1000;

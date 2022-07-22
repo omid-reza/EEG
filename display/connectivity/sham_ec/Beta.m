@@ -1,8 +1,8 @@
 clear;
 % Config plt
 plt.dot_size=100;
-plt.y.pre.data=load("result\connectivity\sham_ec\pre\Beta.txt");
-plt.y.post.data=load("result\connectivity\sham_ec\post\Beta.txt");
+plt.y.pre.data=load("result\raw\connectivity\sham_ec\pre\Beta.txt");
+plt.y.post.data=load("result\raw\connectivity\sham_ec\post\Beta.txt");
 
 plt.y.pre.color=[57 62 70].*4/1000;
 plt.y.post.color=[250 119 0].*4/1000;
