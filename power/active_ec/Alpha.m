@@ -1,5 +1,5 @@
 clear;
-load data\data.mat;
+load dataset\data.mat;
 
 group_names=["first", "second"];
 group_file_names=["Group1", "Group2"];
