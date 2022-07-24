@@ -66,7 +66,7 @@ for pre_post_index=1:2
         result(end+1)=mean(res);
     end
     % Write response(Alpha band connectivities) into the file
-    fileID=fopen(strcat("result\connectivity\active_ec\", pre_post_folder_names(pre_post_index), "Alpha.txt"), "w");
+    fileID=fopen(strcat("result\raw\connectivity\active_ec\", pre_post_folder_names(pre_post_index), "Alpha.txt"), "w");
     fprintf(fileID, '%5d \n', result);
     fclose(fileID);
 end
