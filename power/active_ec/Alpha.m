@@ -36,7 +36,7 @@ for pre_post_index=1:2
             result(end+1)=sum(welch.PSD_estimate(index8:index12));
         end
         % Write response(Alpha band powers) into a file
-        fileID=fopen(strcat("result\power\active_ec\",pre_post_folder_names(pre_post_index), group_file_names(group_name_indexs), "-Alpha.txt"), "w");
+        fileID=fopen(strcat("result\raw\power\active_ec\",pre_post_folder_names(pre_post_index), group_file_names(group_name_indexs), "-Alpha.txt"), "w");
         fprintf(fileID, '%5d \n', result);
         fclose(fileID);
     end
