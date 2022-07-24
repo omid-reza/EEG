@@ -21,7 +21,7 @@ legend("Pre", "Post");
 % Config plt for group1
 set(gca,'XTick',[]);
 ylabel("Alpha Power", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
-set(gcf, "NumberTitle", false, "Name", "Active - EC");
+set(gcf, "NumberTitle", false, "Name", "Active - EC - Alpha");
 set(gca, 'GridColor', [26 77 46].*4/1000);
 set(gca, 'YColor', [26 77 46].*4/1000);
 title('The First Group(F3, Fz, Fp1)');
@@ -32,12 +32,11 @@ grid on;
 swarmchart(plt.x.pre.data, plt.y.pre.group2.data, plt.dot_size, plt.y.pre.color, "filled");
 swarmchart(plt.x.post.data, plt.y.post.group2.data, plt.dot_size, plt.y.post.color, "filled");
 legend("Pre", "Post");
-% Config plt for group1
+% Config plt for group2
 set(gca,'XTick',[]);
 ylabel("Alpha Power", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
-set(gcf, "NumberTitle", false, "Name", "Active - EC");
 set(gca, 'GridColor', [26 77 46].*4/1000);
 set(gca, 'YColor', [26 77 46].*4/1000);
 title('The Second Group(P3, T5, T3)');
-
+% Save plot into a .fig file
 savefig(gcf, "result\visual\power\active_ec\Alpha");

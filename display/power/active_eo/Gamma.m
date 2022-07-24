@@ -21,7 +21,7 @@ legend("Pre", "Post");
 % Config plt for group1
 set(gca,'XTick',[]);
 ylabel("Gamma Power", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
-set(gcf, "NumberTitle", false, "Name", "Active - EO");
+set(gcf, "NumberTitle", false, "Name", "Active - EO - Gamma");
 set(gca, 'GridColor', [26 77 46].*4/1000);
 set(gca, 'YColor', [26 77 46].*4/1000);
 title('The First Group(F3, Fz, Fp1)');
@@ -35,9 +35,8 @@ legend("Pre", "Post");
 % Config plt for group1
 set(gca,'XTick',[]);
 ylabel("Gamma Power", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
-set(gcf, "NumberTitle", false, "Name", "Active - EO");
 set(gca, 'GridColor', [26 77 46].*4/1000);
 set(gca, 'YColor', [26 77 46].*4/1000);
 title('The Second Group(P3, T5, T3)');
-
+% Save plot into a .fig file
 savefig(gcf, "result\visual\power\active_eo\Gamma");

@@ -18,8 +18,8 @@ legend("Pre", "Post");
 % Config plt
 set(gca,'XTick',[]);
 ylabel("Beta Connectivity", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
-set(gcf, "NumberTitle", false, "Name", "Sham - EC");
+set(gcf, "NumberTitle", false, "Name", "Sham - EC - Beta");
 set(gca, 'GridColor', [26 77 46].*4/1000);
 set(gca, 'YColor', [26 77 46].*4/1000);
-
+% Save plot into a .fig file
 savefig(gcf, "result\visual\connectivity\sham_ec\Beta");
