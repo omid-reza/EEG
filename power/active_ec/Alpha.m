@@ -31,9 +31,9 @@ for pre_post_index=1:2
             welch.kernel.data=hamming(welch.kernel.window_size);
             [welch.PSD_estimate, welch.cyclical_frequencies]=pwelch(welch.signal.data, welch.kernel.data, round(welch.kernel.window_size/4), EEG.srate*100, EEG.srate);
             % Extract Alpha band power and stash it into an array that is named result
-            index8=dsearchn(welch.cyclical_frequencies, 8);
-            index12=dsearchn(welch.cyclical_frequencies, 12);
-            result(end+1)=sum(welch.PSD_estimate(index8:index12));
+            range_begin=dsearchn(welch.cyclical_frequencies, 8);
+            range_end=dsearchn(welch.cyclical_frequencies, 12);
+            result(end+1)=sum(welch.PSD_estimate(range_begin:range_end));
         end
         % Write response(Alpha band powers) into a file
         fileID=fopen(strcat("result\raw\power\active_ec\",pre_post_folder_names(pre_post_index), group_file_names(group_name_indexs), "-Alpha.txt"), "w");
