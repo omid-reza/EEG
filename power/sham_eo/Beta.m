@@ -21,7 +21,7 @@ welch.kernel.window_size=2*EEG.srate;
 for pre_post_index=1:2
     for group_name_indexs=1:length(group_names)
         result=[];
-        for trial_index=1:EEG.active.trialsCount
+        for trial_index=1:EEG.sham.trialsCount
             % Skip computation for trials that should be excluded
             if ismember(trial_index, EEG.sham.eo.excluded_trials)
                 continue;

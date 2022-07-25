@@ -21,13 +21,13 @@ welch.kernel.window_size=2*EEG.srate;
 for pre_post_index=1:2
     for group_name_indexs=1:length(group_names)
         result=[];
-        for trial_index=1:EEG.active.trialsCount
+        for trial_index=1:EEG.sham.trialsCount
             % Skip computation for trials that should be excluded
-            if ismember(trial_index, EEG.active.eo.excluded_trials)
+            if ismember(trial_index, EEG.sham.ec.excluded_trials)
                 continue;
             end
             % Calulate Welch method based on params
-            welch.signal.data=squeeze(mean(EEG.active.eo.data(pre_post_index, trial_index, groups.(group_names(group_name_indexs)).channels.indexs , :), 3))';
+            welch.signal.data=squeeze(mean(EEG.sham.ec.data(pre_post_index, trial_index, groups.(group_names(group_name_indexs)).channels.indexs , :), 3))';
             welch.kernel.data=hamming(welch.kernel.window_size);
             [welch.PSD_estimate, welch.cyclical_frequencies]=pwelch(welch.signal.data, welch.kernel.data, round(welch.kernel.window_size/4), EEG.srate*100, EEG.srate);
             % Extract Alpha band power and stash it into an array that is named result

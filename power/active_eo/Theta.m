@@ -31,7 +31,7 @@ for pre_post_index=1:2
             welch.kernel.data=hamming(welch.kernel.window_size);
             [welch.PSD_estimate, welch.cyclical_frequencies]=pwelch(welch.signal.data, welch.kernel.data, round(welch.kernel.window_size/4), EEG.srate*100, EEG.srate);
             % Extract Alpha band power and stash it into an array that is named result
-            range_begin=dsearchn(welch.cyclical_frequencies, 4;
+            range_begin=dsearchn(welch.cyclical_frequencies, 4);
             range_end=dsearchn(welch.cyclical_frequencies, 7);
             result(end+1)=sum(welch.PSD_estimate(range_begin:range_end));
         end
