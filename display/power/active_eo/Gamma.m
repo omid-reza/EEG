@@ -21,7 +21,7 @@ legend("Pre", "Post");
 % Config plt for group1
 set(gca,'XTick',[]);
 ylabel("Gamma Power", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
-set(gcf, "NumberTitle", false, "Name", "Active - EO - Gamma");
+set(gcf, "NumberTitle", false, "Name", "Active - EO - Gamma", "WindowState", "maximized");
 set(gca, 'GridColor', [26 77 46].*4/1000);
 set(gca, 'YColor', [26 77 46].*4/1000);
 title('The First Group(F3, Fz, Fp1)');

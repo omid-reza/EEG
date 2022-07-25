@@ -18,7 +18,7 @@ legend("Pre", "Post");
 % Config plt
 set(gca,'XTick',[]);
 ylabel("Gamma Connectivity", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
-set(gcf, "NumberTitle", false, "Name", "Sham - EO - Gamma");
+set(gcf, "NumberTitle", false, "Name", "Sham - EO - Gamma", "WindowState", "maximized");
 set(gca, 'GridColor', [26 77 46].*4/1000);
 set(gca, 'YColor', [26 77 46].*4/1000);
 % Save plot into a .fig file
