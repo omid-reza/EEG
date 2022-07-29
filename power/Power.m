@@ -28,12 +28,12 @@ function Power(EEG, start_frequency, end_frequency, active_or_sham, ec_or_eo, fi
 	            welch.signal.data=squeeze(mean(EEG.(active_or_sham).(ec_or_eo).data(pre_post_index, trial_index, groups.(group_names(group_name_indexs)).channels.indexs , :), 3))';
 	            welch.kernel.data=hamming(welch.kernel.window_size);
 	            [welch.PSD_estimate, welch.cyclical_frequencies]=pwelch(welch.signal.data, welch.kernel.data, round(welch.kernel.window_size/4), EEG.srate*100, EEG.srate);
-	            % Extract Alpha band power and stash it into an array that is named result
+	            % Extract band power and stash it into an array that is named result
 	            range_begin=dsearchn(welch.cyclical_frequencies, start_frequency);
 	            range_end=dsearchn(welch.cyclical_frequencies, end_frequency);
 	            result(end+1)=sum(welch.PSD_estimate(range_begin:range_end));
 	        end
-	        % Write response(Alpha band powers) into a file
+	        % Write response(band powers) into a file
 	        fileID=fopen(strcat("result\raw\power\", active_or_sham, "_", ec_or_eo, "\", pre_post_folder_names(pre_post_index), group_file_names(group_name_indexs), "-", file_name), "w");
 	        fprintf(fileID, '%5d \n', result);
 	        fclose(fileID);

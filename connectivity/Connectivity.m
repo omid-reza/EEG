@@ -31,7 +31,7 @@ function Connectivity(EEG, start_frequency, frequency_step, end_frequency, activ
                 continue;
             end
             res=[];
-            % Compute Welch method with alpha band frequencties
+            % Compute Welch method with band frequencties
             for cent_frequency=start_frequency:frequency_step:end_frequency
                 % Define Morlet wavelet based on the params
                 morlet.sine_wave.data=exp(2*1i*pi*cent_frequency.*morlet.time);
@@ -62,10 +62,10 @@ function Connectivity(EEG, start_frequency, frequency_step, end_frequency, activ
                 % Calculate connectivity
                 res(end+1)=abs(mean(exp(1i*diff(convolution.phase.data))));
             end
-            % Stash Alpha band connectivity by getting mean of the elements of res array into an array that is named result
+            % Stash band connectivity by getting mean of the elements of res array into an array that is named result
             result(end+1)=mean(res);
         end
-        % Write response(Alpha band connectivities) into the file
+        % Write response(band connectivities) into the file
         fileID=fopen(strcat("result\raw\connectivity\", active_or_sham, "_", ec_or_eo, "\", pre_post_folder_names(pre_post_index), file_name), "w");
         fprintf(fileID, '%5d \n', result);
         fclose(fileID);
