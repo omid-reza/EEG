@@ -25,7 +25,7 @@ function Connectivity(EEG, stat_frequency, frequency_step, end_frequency, active
     for pre_post_index=1:2
         result=[];    
         % Calculate connectivity for the trials
-        for trial_index=1:EEG.active.trialsCount
+        for trial_index=1:EEG.(active_or_sham).trialsCount
             % Skip calculation for trials that should be excluded
             if ismember(trial_index, EEG.(active_or_sham).(ec_or_eo).excluded_trials)
                 continue;
