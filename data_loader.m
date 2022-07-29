@@ -8,4 +8,4 @@ EEG=load_data_active_eo(EEG);
 EEG=load_data_sham_ec(EEG);
 EEG=load_data_sham_eo(EEG);
 
-save('data\data', 'EEG');
+save('dataset\data', 'EEG');
