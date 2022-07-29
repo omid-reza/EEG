@@ -1,4 +1,4 @@
-function Connectivity(EEG, stat_frequency, frequency_step, end_frequency, active_or_sham, ec_or_eo, file_name)
+function Connectivity(EEG, start_frequency, frequency_step, end_frequency, active_or_sham, ec_or_eo, file_name)
     %Calculate Connectivity
     %   Calculate Connectivity
     % Define some constants
@@ -32,7 +32,7 @@ function Connectivity(EEG, stat_frequency, frequency_step, end_frequency, active
             end
             res=[];
             % Compute Welch method with alpha band frequencties
-            for cent_frequency=stat_frequency:frequency_step:end_frequency
+            for cent_frequency=start_frequency:frequency_step:end_frequency
                 % Define Morlet wavelet based on the params
                 morlet.sine_wave.data=exp(2*1i*pi*cent_frequency.*morlet.time);
                 morlet.gaussian_wave.standard_deviation=8/(2*pi*cent_frequency);
