@@ -7,7 +7,7 @@ EEG.srate=250; % rate of signal
 EEG.trialLength=2; % 2 second of reconrding
 EEG.pnts=EEG.trialLength*EEG.srate;
 EEG.times=1/EEG.srate:1/EEG.srate:EEG.trialLength; % time of the signals
-EEG.channels.labels=["Fp1", "Fp2", "F7", "F3", "Fz", "F4", "F8", "T3", "C3", "Cz", "C4", "T4", "T5", "P3", "Pz", "P4", "T6", "O1", "O2"];
+EEG.channels.labels=["Fp1", "Fp2", "F3", "F4", "C3", "C4", "P3", "P4", "O1", "O2", "F7", "F8", "T3", "T4", "T5", "T6", "Fz", "Cz", "Pz"];
 
 % setup information about sham group
 EEG.sham.trialsCount=14;
