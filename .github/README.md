@@ -59,7 +59,7 @@
 - Srate: 250
 - Duration: 2 Seconds
 - System of Electrode Placement: 10-20
-- Trials Count
+- Trials Count(N)
 <div align="center">
   <table>
     <thead>
@@ -82,18 +82,14 @@
   <table>
     <thead>
       <tr>
-        <th>Active - Eye Close</th>
-        <th>Active - Eye Open</th>
-        <th>Sham - Eye Close</th>
-        <th>Sham - Eye Open</th>
+        <th>Active</th>
+        <th>Sham</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>2, 9, 13, 16</td>
-        <td>2, 3, 9, 12, 13, 16</td>
-        <td>4</td>
-        <td>5</td>
+        <td>2, 3, 4, 5, 9, 12, 13, 15, 16</td>
+        <td>2, 3, 4, 5, 9, 12, 13</td>
       </tr>
     </tbody>
   </table>
