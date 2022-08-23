@@ -29,6 +29,7 @@ function Amplitude(EEG, start_frequency, end_frequency, active_or_sham, ec_or_eo
 	            coefficient=fft(data)/EEG.pnts;
 				amplitude=abs(coefficient);
 				amplitude(2:end)=2*amplitude(2:end);
+				amplitude=amplitude./max(amplitude);
 				frequencites=linspace(0, EEG.srate/2, floor(EEG.pnts/2)+1);
 				range_begin=dsearchn(frequencites', start_frequency);
 				range_end=dsearchn(frequencites', end_frequency);

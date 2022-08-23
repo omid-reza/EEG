@@ -28,6 +28,7 @@ function Power(EEG, start_frequency, end_frequency, active_or_sham, ec_or_eo, fi
 	            welch.signal.data=squeeze(mean(EEG.(active_or_sham).(ec_or_eo).data(pre_post_index, trial_index, groups.(group_names(group_name_indexs)).channels.indexs , :), 3))';
 	            welch.kernel.data=hamming(welch.kernel.window_size);
 	            [welch.PSD_estimate, welch.cyclical_frequencies]=pwelch(welch.signal.data, welch.kernel.data, round(welch.kernel.window_size/4), EEG.srate*100, EEG.srate);
+	            welch.PSD_estimate=welch.PSD_estimate./max(welch.PSD_estimate);
 	            % Extract band power and stash it into an array that is named result
 	            range_begin=dsearchn(welch.cyclical_frequencies, start_frequency);
 	            range_end=dsearchn(welch.cyclical_frequencies, end_frequency);
