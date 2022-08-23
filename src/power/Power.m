@@ -35,7 +35,7 @@ function Power(EEG, start_frequency, end_frequency, active_or_sham, ec_or_eo, fi
 	        end
 	        % Write response(band powers) into a file
 	        fileID=fopen(strcat("result\raw\power\", active_or_sham, "_", ec_or_eo, "\", pre_post_folder_names(pre_post_index), group_file_names(group_name_indexs), "-", file_name), "w");
-	        fprintf(fileID, '%5d \n', result);
+	        fprintf(fileID, '%f \n', result);
 	        fclose(fileID);
 	    end
 	end

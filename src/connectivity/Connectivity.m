@@ -67,7 +67,7 @@ function Connectivity(EEG, start_frequency, frequency_step, end_frequency, activ
         end
         % Write response(band connectivities) into the file
         fileID=fopen(strcat("result\raw\connectivity\", active_or_sham, "_", ec_or_eo, "\", pre_post_folder_names(pre_post_index), file_name), "w");
-        fprintf(fileID, '%5d \n', result);
+        fprintf(fileID, '%f \n', result);
         fclose(fileID);
     end
 end
