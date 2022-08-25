@@ -1,8 +1,8 @@
 clear;
 % Config general
 plt.dot_size=100;
-plt.y.pre.color=[57 62 70].*4/1000;
-plt.y.post.color=[250 119 0].*4/1000;
+plt.y.pre.color=[194 16 16].*4/1000;
+plt.y.post.color=[41 52 98].*4/1000;
 figure(43),clf;
 set(gcf, "NumberTitle", false, "Name", "Sham - EC", "WindowState", "maximized");
 
@@ -91,5 +91,6 @@ newPosition = [0.65 0.15 0.3 0.3];
 newUnits = 'normalized';
 set(lgnd,'Position', newPosition,'Units', newUnits, 'FontWeight', 'bold', 'FontSize', 10);
 
-% Save plot into a .fig file
-savefig(gcf, "result\visual\connectivity\sham_ec\Overview");
+% Save the plot as a fig file and a png file
+savefig(gcf, "result\visual\fig\connectivity\sham_ec\Overview");
+saveas(gcf, "result\visual\png\connectivity\sham_ec\Overview.png");

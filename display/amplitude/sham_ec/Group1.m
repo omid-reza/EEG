@@ -2,8 +2,8 @@ clear;
 % Congif general settings
 figure(49), clf;
 set(gcf, "NumberTitle", false, "Name", "Sham - EC - The First Group(F3, Fz, Fp1)", "WindowState", "maximized");
-plt.y.pre.color=[57 62 70].*4/1000;
-plt.y.post.color=[250 119 0].*4/1000;
+plt.y.pre.color=[194 16 16].*4/1000;
+plt.y.post.color=[41 52 98].*4/1000;
 plt.dot_size=100;
 
 % Config plt
@@ -95,5 +95,6 @@ lgnd=legend("Pre", "Post");
 newPosition = [0.65 0.15 0.3 0.3];
 newUnits = 'normalized';
 set(lgnd,'Position', newPosition,'Units', newUnits, 'FontWeight', 'bold', 'FontSize', 10);
-% Save plot into a .fig file
-savefig(gcf, "result\visual\amplitude\sham_ec\Group1");
+% Save the plot as a fig file and a png file
+savefig(gcf, "result\visual\fig\amplitude\sham_ec\Group1");
+saveas(gcf, "result\visual\png\amplitude\sham_ec\Group1.png");
