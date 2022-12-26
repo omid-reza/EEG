@@ -30,13 +30,13 @@
   </table>
 </div>
 
-- Groups
+- Networks
 <div align="center">
   <table>
     <thead>
       <tr>
-        <th>The First Group</th>
-        <th>The Second Group</th>
+        <th>The First Network</th>
+        <th>The Second Network</th>
       </tr>
     </thead>
     <tbody>
