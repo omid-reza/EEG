@@ -105,3 +105,6 @@ ylabel("Gamma Amplitude - Sham EO", "Color", [21 19 60].*4/1000, "FontWeight", "
 xlabel("  Baseline          After intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 set(gca,'XTick',[]);
 title("Network 2", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
+% Save the plot as a fig file and a png file
+savefig(gcf, "result\visual\fig\amplitude\merged_plots\AlphaGammaSham");
+saveas(gcf, "result\visual\png\amplitude\merged_plots\AlphaGammaSham.png");

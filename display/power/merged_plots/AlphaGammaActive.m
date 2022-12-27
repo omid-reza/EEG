@@ -105,3 +105,6 @@ ylabel("Gamma Power - Active EO", "Color", [21 19 60].*4/1000, "FontWeight", "bo
 xlabel("  Baseline          After intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 set(gca,'XTick',[]);
 title("Network 2", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
+% Save the plot as a fig file and a png file
+savefig(gcf, "result\visual\fig\power\merged_plots\AlphaGammaActive");
+saveas(gcf, "result\visual\png\power\merged_plots\AlphaGammaActive.png");

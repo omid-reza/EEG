@@ -105,3 +105,6 @@ ylabel("Gamma Power - Sham EO", "Color", [21 19 60].*4/1000, "FontWeight", "bold
 xlabel("  Baseline          After intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 set(gca,'XTick',[]);
 title("Network 2", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
+% Save the plot as a fig file and a png file
+savefig(gcf, "result\visual\fig\power\merged_plots\AlphaGammaSham");
+saveas(gcf, "result\visual\png\power\merged_plots\AlphaGammaSham.png");

@@ -52,3 +52,6 @@ swarmchart(plt.x.post.data, plt.y.sham.eo.gamma.post.data, plt.dot_size, plt.y.p
 ylabel("Gamma Connectivity - Sham EO", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 xlabel("  Baseline                                      After intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 set(gca,'XTick',[]);
+% Save the plot as a fig file and a png file
+savefig(gcf, "result\visual\fig\connectivity\merged_plots\AlphaGammaSham");
+saveas(gcf, "result\visual\png\connectivity\merged_plots\AlphaGammaSham.png");
