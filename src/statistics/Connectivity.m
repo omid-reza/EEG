@@ -18,3 +18,4 @@ end
 
 result=StatisticsCore(data);
 
+save('result\statistical\Connectivity', 'result');

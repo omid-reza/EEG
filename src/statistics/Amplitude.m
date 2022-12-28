@@ -20,3 +20,5 @@ end
 
 result=StatisticsCore(data);
 
+save('result\statistical\Amplitude', 'result');
+

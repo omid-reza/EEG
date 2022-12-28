@@ -19,4 +19,5 @@ for groups=inputArguments.groups
 end
 
 result=StatisticsCore(data);
+save('result\statistical\Power', 'result');
 
