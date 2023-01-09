@@ -1,6 +1,4 @@
-dataset/*.mat
-dataset/*/*/*/*.txt
-result/raw/*/*/*/*.txt
-result/statistical/*.mat
-result/visual/fig/*/*/*.fig
-result/visual/png/*/*/*.png
+*.mat
+*.txt
+*.fig
+*.png

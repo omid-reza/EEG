@@ -18,7 +18,7 @@ for groups=inputArguments.groups
     end
 end
 
-result=StatisticsCore(data);
+result=StatisticsCore(data, true);
 
 save('result\statistical\Amplitude', 'result');
 

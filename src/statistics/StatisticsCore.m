@@ -1,6 +1,9 @@
-function result = StatisticsCore(data)
+function result = StatisticsCore(data, sep_group)
     addpath(genpath('src/statistics'));
     inputArguments=ArgumentsLoader;
+    if sep_group==false
+        inputArguments.networkGroups=["Total"];
+    end
     for ec_eo=inputArguments.ec_eo
         for freq=inputArguments.files
             for net=inputArguments.networkGroups

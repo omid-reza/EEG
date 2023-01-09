@@ -7,7 +7,7 @@ for groups=inputArguments.groups
             for files=inputArguments.files
                 for group=inputArguments.networkGroups
                     file_data=load(strcat("result\raw\connectivity\", groups, "_", ec_eo, "\", pre_post, "\", files, ".txt"));
-                    index=strcat(groups, "_", ec_eo, "_", files, "_", replace(group, "-", ""));
+                    index=strcat(groups, "_", ec_eo, "_", files, "_Total");
                     data.(index)=deal([]);
                     for d=file_data'
                         data.(index)(end+1)=d;
@@ -18,6 +18,6 @@ for groups=inputArguments.groups
     end
 end
 
-result=StatisticsCore(data);
+result=StatisticsCore(data, false);
 
 save('result\statistical\Connectivity', 'result');
