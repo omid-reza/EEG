@@ -7,7 +7,7 @@ for groups=inputArguments.groups
             for files=inputArguments.files
                 for group=inputArguments.networkGroups
                     file_data=load(strcat("result\raw\power\", groups, "_", ec_eo, "\", pre_post, "\", group, files, ".txt"));
-                    index=strcat(groups, "_", ec_eo, "_", files);
+                    index=strcat(groups, "_", ec_eo, "_", files, "_", replace(group, "-", ""));
                     data.(index)=deal([]);
                     for d=file_data'
                         data.(index)(end+1)=d;
@@ -21,4 +21,3 @@ end
 result=StatisticsCore(data);
 
 save('result\statistical\Power', 'result');
-

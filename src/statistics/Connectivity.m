@@ -1,5 +1,3 @@
-
-
 clear;
 addpath(genpath('src/statistics'));
 inputArguments=ArgumentsLoader;
@@ -9,7 +7,7 @@ for groups=inputArguments.groups
             for files=inputArguments.files
                 for group=inputArguments.networkGroups
                     file_data=load(strcat("result\raw\connectivity\", groups, "_", ec_eo, "\", pre_post, "\", files, ".txt"));
-                    index=strcat(groups, "_", ec_eo, "_", files);
+                    index=strcat(groups, "_", ec_eo, "_", files, "_", replace(group, "-", ""));
                     data.(index)=deal([]);
                     for d=file_data'
                         data.(index)(end+1)=d;
