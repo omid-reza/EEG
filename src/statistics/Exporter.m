@@ -4,7 +4,7 @@ inputArguments=ArgumentsLoader;
 
 %Power and Amplitude
 types = ["Amplitude", "Power"];
-params = ["active_mean", "sham_mean", "active_stderror", "sham_stderror", "p_value"];
+params = ["active_mean", "sham_mean", "active_std", "sham_std", "p_value"];
 for type_index=1:length(types)
     type=load(strcat("result\statistical\", types(type_index),".mat"));
     for ec_eo=inputArguments.ec_eo
