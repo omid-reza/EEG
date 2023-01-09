@@ -1,9 +1,16 @@
 function result = StatisticsCore(data)
-    % mean for each group
-	result.active_mean=mean(data.active);
-	result.sham_mean=mean(data.sham);
-    % Standard error for each group
-	result.active_stderror=std(data.active)/sqrt(length(data.active));
-	result.sham_stderror=std(data.sham)/sqrt(length(data.sham));
-	[result.h, result.p_value]=ttest(data.active, data.sham); % P-value
+    addpath(genpath('src/statistics'));
+    inputArguments=ArgumentsLoader;
+    for ec_eo=inputArguments.ec_eo
+        for freq=inputArguments.files
+            index=strcat(ec_eo, "_",freq);
+            % mean for each group
+            result.(index).active_mean=mean(data.(strcat("active_",index)));
+            result.(index).sham_mean=mean(data.(strcat("sham_",index)));
+            % standard error for each group
+            result.(index).active_stderror=std(data.(strcat("active_",index))/sqrt(length(data.(strcat("active_",index)))));
+            result.(index).sham_stderror=std(data.(strcat("sham_",index))/sqrt(length(data.(strcat("sham_",index)))));
+            [result.(index).h, result.(index).p_value]=ttest(data.(strcat("active_",index)), data.(strcat("sham_",index)));
+        end
+    end
 end
