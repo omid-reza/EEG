@@ -15,7 +15,9 @@ plt.y.post.color=[41 52 98].*4/1000;
 plt.x.pre.data=ones(1, length(plt.y.sham.ec.alpha.pre.data));
 plt.x.post.data=ones(1, length(plt.y.sham.ec.alpha.post.data))+1;
 % General Config
-figure(54),clf;
+fg=figure(54);
+clf;
+fg.WindowState = 'maximized';
 
 subplot(2, 2, 1);
 hold on;
@@ -23,7 +25,7 @@ grid on;
 swarmchart(plt.x.pre.data, plt.y.sham.ec.alpha.pre.data, plt.dot_size, plt.y.pre.color, "filled");
 swarmchart(plt.x.post.data, plt.y.sham.ec.alpha.post.data, plt.dot_size, plt.y.post.color, "filled");
 ylabel("Alpha Connectivity - Sham EC", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
-xlabel("  Baseline                                      After intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
+xlabel("  Baseline                                      After Intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 set(gca,'XTick',[]);
 
 subplot(2, 2, 2);
@@ -32,7 +34,7 @@ grid on;
 swarmchart(plt.x.pre.data, plt.y.sham.ec.gamma.pre.data, plt.dot_size, plt.y.pre.color, "filled");
 swarmchart(plt.x.post.data, plt.y.sham.ec.gamma.post.data, plt.dot_size, plt.y.post.color, "filled");
 ylabel("Gamma Connectivity - Sham EC", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
-xlabel("  Baseline                                      After intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
+xlabel("  Baseline                                      After Intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 set(gca,'XTick',[]);
 
 subplot(2, 2, 3);
@@ -41,7 +43,7 @@ grid on;
 swarmchart(plt.x.pre.data, plt.y.sham.eo.alpha.pre.data, plt.dot_size, plt.y.pre.color, "filled");
 swarmchart(plt.x.post.data, plt.y.sham.eo.alpha.post.data, plt.dot_size, plt.y.post.color, "filled");
 ylabel("Alpha Connectivity - Sham EO", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
-xlabel("  Baseline                                      After intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
+xlabel("  Baseline                                      After Intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 set(gca,'XTick',[]);
 
 subplot(2, 2, 4);
@@ -50,7 +52,7 @@ grid on;
 swarmchart(plt.x.pre.data, plt.y.sham.eo.gamma.pre.data, plt.dot_size, plt.y.pre.color, "filled");
 swarmchart(plt.x.post.data, plt.y.sham.eo.gamma.post.data, plt.dot_size, plt.y.post.color, "filled");
 ylabel("Gamma Connectivity - Sham EO", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
-xlabel("  Baseline                                      After intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
+xlabel("  Baseline                                      After Intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 set(gca,'XTick',[]);
 % Save the plot as a fig file and a png file
 savefig(gcf, "result\visual\fig\connectivity\merged_plots\AlphaGammaSham");

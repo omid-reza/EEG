@@ -24,7 +24,9 @@ plt.x.pre.data=ones(1, length(plt.y.active.ec.alpha.group1.pre.data));
 plt.x.post.data=ones(1, length(plt.y.active.ec.alpha.group1.post.data))+1;
 
 % General Config
-figure(55),clf;
+fg=figure(55);
+clf;
+fg.WindowState = 'maximized';
 
 subplot(2, 4, 1);
 hold on;
@@ -32,7 +34,7 @@ grid on;
 swarmchart(plt.x.pre.data, plt.y.active.ec.alpha.group1.pre.data, plt.dot_size, plt.y.pre.color, "filled");
 swarmchart(plt.x.post.data, plt.y.active.ec.alpha.group1.post.data, plt.dot_size, plt.y.post.color, "filled");
 ylabel("Alpha Amplitude - Active EC", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
-xlabel("  Baseline          After intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
+xlabel("  Baseline          After Intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 set(gca,'XTick',[]);
 title("Network 1", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 
@@ -42,7 +44,7 @@ grid on;
 swarmchart(plt.x.pre.data, plt.y.active.ec.alpha.group2.pre.data, plt.dot_size, plt.y.pre.color, "filled");
 swarmchart(plt.x.post.data, plt.y.active.ec.alpha.group2.post.data, plt.dot_size, plt.y.post.color, "filled");
 ylabel("Alpha Amplitude - Active EC", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
-xlabel("  Baseline          After intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
+xlabel("  Baseline          After Intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 set(gca,'XTick',[]);
 title("Network 2", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 
@@ -52,7 +54,7 @@ grid on;
 swarmchart(plt.x.pre.data, plt.y.active.ec.gamma.group1.pre.data, plt.dot_size, plt.y.pre.color, "filled");
 swarmchart(plt.x.post.data, plt.y.active.ec.gamma.group1.post.data, plt.dot_size, plt.y.post.color, "filled");
 ylabel("Gamma Amplitude - Active EC", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
-xlabel("  Baseline          After intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
+xlabel("  Baseline          After Intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 set(gca,'XTick',[]);
 title("Network 1", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 
@@ -62,7 +64,7 @@ grid on;
 swarmchart(plt.x.pre.data, plt.y.active.ec.gamma.group2.pre.data, plt.dot_size, plt.y.pre.color, "filled");
 swarmchart(plt.x.post.data, plt.y.active.ec.gamma.group2.post.data, plt.dot_size, plt.y.post.color, "filled");
 ylabel("Gamma Amplitude - Active EC", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
-xlabel("  Baseline          After intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
+xlabel("  Baseline          After Intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 set(gca,'XTick',[]);
 title("Network 2", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 
@@ -72,7 +74,7 @@ grid on;
 swarmchart(plt.x.pre.data, plt.y.active.eo.alpha.group1.pre.data, plt.dot_size, plt.y.pre.color, "filled");
 swarmchart(plt.x.post.data, plt.y.active.eo.alpha.group1.post.data, plt.dot_size, plt.y.post.color, "filled");
 ylabel("Alpha Amplitude - Active EO", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
-xlabel("  Baseline          After intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
+xlabel("  Baseline          After Intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 set(gca,'XTick',[]);
 title("Network 1", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 
@@ -82,7 +84,7 @@ grid on;
 swarmchart(plt.x.pre.data, plt.y.active.eo.alpha.group2.pre.data, plt.dot_size, plt.y.pre.color, "filled");
 swarmchart(plt.x.post.data, plt.y.active.eo.alpha.group2.post.data, plt.dot_size, plt.y.post.color, "filled");
 ylabel("Alpha Amplitude - Active EO", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
-xlabel("  Baseline          After intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
+xlabel("  Baseline          After Intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 set(gca,'XTick',[]);
 title("Network 2", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 
@@ -92,7 +94,7 @@ grid on;
 swarmchart(plt.x.pre.data, plt.y.active.eo.gamma.group1.pre.data, plt.dot_size, plt.y.pre.color, "filled");
 swarmchart(plt.x.post.data, plt.y.active.eo.gamma.group1.post.data, plt.dot_size, plt.y.post.color, "filled");
 ylabel("Gamma Amplitude - Active EO", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
-xlabel("  Baseline          After intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
+xlabel("  Baseline          After Intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 set(gca,'XTick',[]);
 title("Network 1", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 
@@ -102,7 +104,7 @@ grid on;
 swarmchart(plt.x.pre.data, plt.y.active.eo.gamma.group2.pre.data, plt.dot_size, plt.y.pre.color, "filled");
 swarmchart(plt.x.post.data, plt.y.active.ec.gamma.group2.post.data, plt.dot_size, plt.y.post.color, "filled");
 ylabel("Gamma Amplitude - Active EO", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
-xlabel("  Baseline          After intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
+xlabel("  Baseline          After Intervention", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 set(gca,'XTick',[]);
 title("Network 2", "Color", [21 19 60].*4/1000, "FontWeight", "bold");
 % Save the plot as a fig file and a png file
