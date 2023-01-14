@@ -7,14 +7,17 @@ function result = StatisticsCore(data, sep_group)
     for ec_eo=inputArguments.ec_eo
         for freq=inputArguments.files
             for net=inputArguments.networkGroups
-                index=strcat(ec_eo, "_", freq, "_", replace(net, "-", ""));
+                data_index=strcat(ec_eo, "_", freq, "_", replace(net, "-", ""), "_diff");
+                result_index=strcat(ec_eo, "_", freq, "_", replace(net, "-", ""));
                 % mean for each group
-                result.(index).active_mean=mean(data.(strcat("active_",index)));
-                result.(index).sham_mean=mean(data.(strcat("sham_",index)));
+                result.(result_index).active_mean=mean(data.(strcat("active_",data_index)));
+                result.(result_index).sham_mean=mean(data.(strcat("sham_",data_index)));
                 % standard error for each group
-                result.(index).active_std=std(data.(strcat("active_",index)));
-                result.(index).sham_std=std(data.(strcat("sham_",index)));
-                [result.(index).h, result.(index).p_value]=ttest(data.(strcat("active_",index)), data.(strcat("sham_",index)));
+                result.(result_index).active_std=std(data.(strcat("active_",data_index)));
+                result.(result_index).sham_std=std(data.(strcat("sham_",data_index)));
+                % p_value for each group
+                [result.(result_index).active_h, result.(result_index).active_p_value]=ttest(data.(strcat("active_",result_index, "_post")), data.(strcat("active_",result_index, "_pre")));
+                [result.(result_index).sham_h, result.(result_index).sham_p_value]=ttest(data.(strcat("sham_",result_index, "_post")), data.(strcat("sham_",result_index, "_pre")));
             end
         end
     end
