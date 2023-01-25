@@ -1,4 +1,6 @@
-## Analyze Information
+## Effectiveness of tDCS over the DLPFC on reducing clinical symptoms, improving working memory, and aberrant EEG functional connectivity in resting-state schizophrenia patients
+### Analyze Information
+***
 - EEG Signal Frequencies
 <div align="center">
   <table>
@@ -95,11 +97,12 @@
   </table>
 </div>
 
-## Are you interested in investigating our dataset?
-You can contact me through the email that is in my profile.
+### Data availability
+***
+The datasets generated and/or analyzed during the current study are not publicly
+available due to ethics and confidentiality agreements, but are
+available from the corresponding author upon reasonable request.
 
-**Note**: Your email should be academic. What's more, you have to explain your investigation proposal.
-
-## License
-
+### License
+***
 The project is under the [MIT license](LICENSE.md).
